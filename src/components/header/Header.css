@@ -1,0 +1,42 @@
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 80px 0;
+}
+
+header .title h1 {
+	font-size: 40px;
+}
+.AddData{
+    text-align: center;
+    justify-content: center;
+
+}
+.error{
+    color: red;
+
+}
+.addButton{
+
+    margin-top: 2rem;
+}
+.inputFiled{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+header .title h1 {
+	font-size: 40px;
+	opacity: 0;
+	animation: visible 1.2s ease forwards;
+}
+.button-style{
+    position: absolute;
+    top:13rem;
+    right: 0;
+    width: 120px;
+    transform: translateY(-50%);
+    margin-right: 3rem;
+}
