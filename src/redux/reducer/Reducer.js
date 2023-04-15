@@ -16,8 +16,6 @@ export const MovieReducers = (state = initialState, action) => {
             loading: true,
         };
     } else if (action.type === FETCH_DATA_SUCCESS) {
-        console.log(action.payload,"dc");
-        
         return {
             ...state,
             loading: false,
@@ -29,7 +27,7 @@ export const MovieReducers = (state = initialState, action) => {
     } else if (action.type === FETCH_DATA_FAILED) {
         return {
             ...state,
-            loading: false,
+            loading: true,
             error:action.payload
         };
     } else if (action.type === SEARCH_DATA) {

@@ -1,19 +1,15 @@
 import "./Header.css";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { fetchMovie } from "../../redux/action/Action";
-
-function Header({ search, setSearch, onChange ,MovieSearching}) {
+import React from "react";
 
 
-  
+function Header({ search, setSearch, onChange, MovieSearching }) {
     return (
         <div className="main-header">
-            <div>
-                <h1>MY MOVIE APP</h1>
+            <div className="title">
+                <h2>MOVIE APP</h2>
             </div>
             <div className="input-field">
-                <input type="text" value={search} onChange={onChange} placeholder="Search"></input>
+                <input type="text"  onChange={onChange} placeholder="Search" required></input>
                 <button onClick={MovieSearching}>Search</button>
             </div>
         </div>

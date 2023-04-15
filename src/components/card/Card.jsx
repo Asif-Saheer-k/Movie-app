@@ -9,8 +9,8 @@ function Card({post}) {
                 alt="..."
             />
             <div class="card-body">
-                <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer"></i>
-               
+                
+                
                 <h5 class="card-title">{post.Title}</h5>
                 <div className="card-details">
                 <div class="movie_info">{post.Year}</div>

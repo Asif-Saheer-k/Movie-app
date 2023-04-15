@@ -6,4 +6,42 @@
     width: 100%;
     height: 60px;
 }
+.input-field{
+	width: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.input-field input{
+	width: 50%;
+    height: 39px;
+    position: relative;
+    border: none;
+    padding-left: 11px;
+    border-radius: 40px;
+	outline: none;
+}
+button{
+	font-weight: 400;
+    margin-left: 5px;
+    border-radius: 40px;
+    border: none;
+    color: white;
+    background-color: #7a7aeb;
+    padding: 8px 13px;
+}
+h2{
+	color: white;
+}
 
+@media screen and (max-width: 600px) {
+.input-field{
+width: 100%;
+}
+.input-field input{
+	width: 70%;
+}
+.title{
+	display: none;
+}
+}
