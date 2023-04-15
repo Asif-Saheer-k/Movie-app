@@ -1,3 +1,4 @@
+import "./Homepage.css"
 import React, { useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Card from "../components/card/Card";
