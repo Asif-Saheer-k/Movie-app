@@ -14,29 +14,38 @@ function HomePage() {
     const { movie, loading, totalResults, error } = useSelector((state) => state.MovieReducers);
     const [currentPage, setCurrentPage] = useState(1);
 
+    // movie searching function
+    const MovieSearching = () => {
+        setCurrentPage(1);
+        dispatch(fetchMovie(currentPage, search));
+    };
+
+    // input onchange function
+    const handleChangeSearch = (e) => {
+     
+        setSearch(e.target.value);
+   
+    };
+
+    // fetch movies from api
     useEffect(() => {
-        if (!search) {
+        dispatch(fetchMovie(currentPage,search));
+    }, [currentPage]);
+
+      // in case of input field null this function work
+      useEffect(() => {
+        if (search=="") {
             dispatch(fetchMovie(currentPage, "spider"));
         }
     }, [search]);
 
-    const MovieSearching = () => {
-        dispatch(fetchMovie(currentPage, search));
-    };
-    const handleChangeSearch = (e) => {
-        if (e.target.value.length > 0) {
-            setCurrentPage(1);
-        }
-        setSearch(e.target.value);
-    };
-    useEffect(() => {
-        dispatch(fetchMovie(currentPage, search));
-    }, [dispatch, currentPage]);
+    // single page how many movies shows
     const MoviePerPage = 10;
+    // total movies in int
     const totalMovie = totalResults;
 
     return (
-        <>
+        <div>
             <Header search={search} MovieSearching={MovieSearching} setSearch={setSearch} onChange={handleChangeSearch} />
             <div className="container-fluid banner-image">
                 <img src="https://blogs-images.forbes.com/johnarcher/files/2018/03/Jessica-Jones-S2-Art.jpg"></img>
@@ -62,7 +71,7 @@ function HomePage() {
                     </div>
                 </>
             )}
-        </>
+        </div>
     );
 }
 

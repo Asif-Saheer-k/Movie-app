@@ -1,4 +1,4 @@
-import "./Error.css"
+import "./Error.css";
 import React from "react";
 
 function Error({ Error }) {
