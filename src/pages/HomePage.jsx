@@ -14,8 +14,14 @@ function HomePage() {
     const { movie, loading, totalResults, error } = useSelector((state) => state.MovieReducers);
     const [currentPage, setCurrentPage] = useState(1);
 
+    useEffect(() => {
+        if (!search) {
+            dispatch(fetchMovie(currentPage, "spider"));
+        }
+    }, [search]);
+
     const MovieSearching = () => {
-        dispatch(fetchMovie(1, search));
+        dispatch(fetchMovie(currentPage, search));
     };
     const handleChangeSearch = (e) => {
         if (e.target.value.length > 0) {
@@ -40,7 +46,6 @@ function HomePage() {
             ) : (
                 <>
                     <div class="container movie-card mt-5">
-                        
                         <div class="row movie-display">
                             {movie?.map((post, index) => (
                                 <Card post={post} key={index} />
