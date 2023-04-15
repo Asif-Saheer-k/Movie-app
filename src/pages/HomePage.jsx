@@ -55,8 +55,8 @@ function HomePage() {
                 <>{error ? <Error Error={error} /> : <Loader />}</>
             ) : (
                 <>
-                    <div class="container movie-card mt-5">
-                        <div class="row movie-display">
+                    <div className="container movie-card mt-5">
+                        <div className="row movie-display">
                             {movie?.map((post, index) => (
                                 <Card post={post} key={index} />
                             ))}

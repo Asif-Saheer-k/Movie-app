@@ -1,6 +1,6 @@
 .movie_card{
     padding: 0 !important;
-    width: 13rem;
+    width: 12rem;
     margin:14px; 
     border-radius: 10px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
@@ -61,7 +61,12 @@
 	.movie_card{
         width: 80%;
       
+      
     }
+    .movie_card img{
+        height:18rem ;
+    }
+
 }
 
 

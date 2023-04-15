@@ -3,7 +3,7 @@ import "./Loader.css";
 
 function Loader() {
     return (
-        <div class="bouncing-loader">
+        <div className="bouncing-loader">
             <div></div>
             <div></div>
             <div></div>
