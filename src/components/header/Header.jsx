@@ -1,13 +1,12 @@
 import "./Header.css";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { searchMovie } from "../../redux/action/Action";
+import { fetchMovie } from "../../redux/action/Action";
 
-function Header({ search, setSearch, onChange }) {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(searchMovie(search));
-    }, [search, dispatch]);
+function Header({ search, setSearch, onChange ,MovieSearching}) {
+
+
+  
     return (
         <div className="main-header">
             <div>
@@ -15,7 +14,7 @@ function Header({ search, setSearch, onChange }) {
             </div>
             <div className="input-field">
                 <input type="text" value={search} onChange={onChange} placeholder="Search"></input>
-                <button>Search</button>
+                <button onClick={MovieSearching}>Search</button>
             </div>
         </div>
     );

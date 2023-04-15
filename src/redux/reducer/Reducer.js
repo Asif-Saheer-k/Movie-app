@@ -6,29 +6,31 @@ const initialState = {
     searchResults: [],
     totalResults:0,
     page: 1,
+    error:null,
 };
 
 export const MovieReducers = (state = initialState, action) => {
     if (action.type === FETCH_DATA) {
-   
         return {
             ...state,
             loading: true,
         };
     } else if (action.type === FETCH_DATA_SUCCESS) {
-
+        console.log(action.payload,"dc");
         
         return {
             ...state,
             loading: false,
             movie: action.payload.Search,
             searchResults: action.payload.Search,
-            totalResults:action.payload.totalResults
+            totalResults:action.payload.totalResults,
+            error:null
         };
     } else if (action.type === FETCH_DATA_FAILED) {
         return {
             ...state,
-            loading: true,
+            loading: false,
+            error:action.payload
         };
     } else if (action.type === SEARCH_DATA) {
         return {
@@ -36,6 +38,7 @@ export const MovieReducers = (state = initialState, action) => {
             loading:false,
             movie: action.payload,
             page: 1,
+            error:null
         };
     } else {
         return state;
