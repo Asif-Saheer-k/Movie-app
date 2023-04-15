@@ -1,6 +1,6 @@
 .movie_card{
     padding: 0 !important;
-    width: 12rem;
+    width: 13rem;
     margin:14px; 
     border-radius: 10px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
@@ -56,6 +56,12 @@
 .card-details{
     display: flex;
     justify-content: space-between;
+}
+@media screen and (max-width: 600px) {
+	.movie_card{
+        width: 80%;
+      
+    }
 }
 
 
