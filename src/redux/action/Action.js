@@ -1,16 +1,14 @@
 import * as actions from '../data/Data';
 import axios from 'axios';
 
-export const fetchMovie = () => async (dispatch) => {
+export const fetchMovie = (page) => async (dispatch) => {
 	dispatch({ type: actions.FETCH_DATA });
 	try {
-		const data = await axios.get('https://www.omdbapi.com/?s=&apikey=dbc2365c');
-        console.log(data,'dkc');
+		const {data} = await axios.get(`https://www.omdbapi.com/?s=Bats&apikey=dbc2365c&page=${page}`);
 		dispatch({ type: actions.FETCH_DATA_SUCCESS, payload: data });
 	} catch (error) {
 		dispatch({ type: actions.FETCH_DATA_FAILED, payload: error.message });
-		console.log(error.message);
-	}
+		console.log(error.message);	} 
 }; 
 
 export const searchMovie = (query) => (dispatch, getState) => {

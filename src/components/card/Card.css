@@ -53,3 +53,7 @@
 .credits .card-body i{
     color: #8e24aa;
 }
+.card-details{
+    display: flex;
+    justify-content: space-between;
+}

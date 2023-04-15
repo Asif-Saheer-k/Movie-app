@@ -10,7 +10,8 @@ import Paginate from "../components/paginator/Paginator";
 function HomePage() {
     const [search, setSearch] = useState("");
     const dispatch = useDispatch();
-    const { movie,loading } = useSelector((state) => state.MovieReducers);
+    const { movie,loading,totalResults } = useSelector((state) => state.MovieReducers);
+    console.log(loading,"d,kc");
     const [currentPage, setCurrentPage] = useState(1);
 
     const handleChangeSearch = (e) => {
@@ -20,22 +21,20 @@ function HomePage() {
         setSearch(e.target.value);
     };
 
-    useEffect(() => {
-        dispatch(fetchMovie());
-    }, [dispatch]);
 
+    useEffect(() => {
+        dispatch(fetchMovie(currentPage));
+    }, [dispatch,currentPage]);
     const MoviePerPage = 6;
-    const totalMovie = movie.length;
-    const indexOfLastPost = currentPage * MoviePerPage;
-    const indexOfFirstPost = indexOfLastPost - MoviePerPage;
-    const filterMovie = movie.slice(indexOfFirstPost, indexOfLastPost);
+    const totalMovie = totalResults;
+    const filterMovie = movie
     return (
         <>
             <Header search={search} setSearch={setSearch} onChange={handleChangeSearch} />
             {loading ? (
                 <Loader />
             ) : (
-                <div class="container mt-5"> 
+                <div class="container movie-card mt-5"> 
                 <div class="row justify-content-space-around">
                     {filterMovie.map((post, index) => (
                         <Card post={post} key={index} />
@@ -51,7 +50,7 @@ function HomePage() {
                 </div>
                 </div>
             )} 
-            <Footer />
+
         </>
     );
 }
